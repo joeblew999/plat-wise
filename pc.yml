@@ -17,4 +17,3 @@ processes:
     command: go run ./cmd/wise-mcp
     availability:
       restart: on_failure
-    disabled: true  # Enable when needed for Claude integration

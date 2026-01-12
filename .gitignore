@@ -1,8 +1,8 @@
 # Build artifacts
 .bin/
-wise-cli
-wise-mcp
-wise-server
+/wise-cli
+/wise-mcp
+/wise-server
 *.exe
 *.test
 *.out
@@ -17,11 +17,15 @@ wise-server
 # Environment (user-specific secrets)
 .env
 .env.local
+.mcp.json
 
 # IDE & OS
 .vscode/
 .idea/
 .DS_Store
+
+# Playwright MCP (test artifacts)
+.playwright-mcp/
 
 # Go
 vendor/

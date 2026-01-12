@@ -6,7 +6,6 @@ env:
   GOWORK: off
 
 vars:
-  BIN_DIR: .bin
   WISE_PORT: '{{.WISE_PORT | default "8080"}}'
 
 tasks:
@@ -19,6 +18,7 @@ tasks:
     desc: Print environment variables
     cmds:
       - echo "WISE_API_TOKEN=$WISE_API_TOKEN"
+      - echo "PLAT_BIN=$PLAT_BIN"
 
   rates:
     desc: Get exchange rates from Wise API
@@ -58,7 +58,7 @@ tasks:
   mcp-build:
     desc: Build the MCP server binary
     cmds:
-      - go build -o {{.BIN_DIR}}/wise-mcp ./cmd/wise-mcp
+      - go build -o $PLAT_BIN/wise-mcp ./cmd/wise-mcp
 
   mcp-config:
     desc: Print Claude Desktop MCP config snippet
@@ -70,7 +70,7 @@ tasks:
         {
           "mcpServers": {
             "wise": {
-              "command": "$(pwd)/{{.BIN_DIR}}/wise-mcp",
+              "command": "$(pwd)/$PLAT_BIN/wise-mcp",
               "env": {
                 "WISE_API_TOKEN": "YOUR_TOKEN_HERE"
               }
@@ -87,22 +87,22 @@ tasks:
   serve-build:
     desc: Build web server binary
     cmds:
-      - go build -o {{.BIN_DIR}}/wise-server ./cmd/wise-server
+      - go build -o $PLAT_BIN/wise-server ./cmd/wise-server
 
   build:
     desc: Build all binaries
     deps: [build-dir]
     cmds:
-      - go build -o {{.BIN_DIR}}/wise-cli ./cmd/wise-cli
-      - go build -o {{.BIN_DIR}}/wise-mcp ./cmd/wise-mcp
-      - go build -o {{.BIN_DIR}}/wise-server ./cmd/wise-server
+      - go build -o $PLAT_BIN/wise-cli ./cmd/wise-cli
+      - go build -o $PLAT_BIN/wise-mcp ./cmd/wise-mcp
+      - go build -o $PLAT_BIN/wise-server ./cmd/wise-server
 
   build-dir:
     desc: Create build directory
     cmds:
-      - xplat os mkdir {{.BIN_DIR}}
+      - xplat os mkdir $PLAT_BIN
     status:
-      - test -d {{.BIN_DIR}}
+      - test -d $PLAT_BIN
 
   test:
     desc: Run tests
@@ -112,7 +112,7 @@ tasks:
   clean:
     desc: Remove built binaries
     cmds:
-      - xplat os rm -rf {{.BIN_DIR}}
+      - xplat os rm -rf $PLAT_BIN
 
   up:
     desc: Start all services with process-compose

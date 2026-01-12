@@ -2,6 +2,10 @@
 
 Go client for the [Wise API](https://docs.wise.com/api-reference).
 
+## Requirements
+
+- [xplat](https://github.com/joeblew999/xplat) - Task runner and process orchestration
+
 ## Installation
 
 ```bash

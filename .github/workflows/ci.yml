@@ -17,7 +17,7 @@ on:
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  XPLAT_VERSION: "v0.1.0"
+  XPLAT_VERSION: "v0.3.8"
 
 jobs:
   ci:

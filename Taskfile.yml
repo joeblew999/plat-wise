@@ -109,6 +109,11 @@ tasks:
     cmds:
       - go test ./...
 
+  lint:
+    desc: Run linter
+    cmds:
+      - go vet ./...
+
   clean:
     desc: Remove built binaries
     cmds:

@@ -1,0 +1,27 @@
+# Build artifacts
+.bin/
+wise-cli
+wise-mcp
+wise-server
+*.exe
+*.test
+*.out
+
+# Task (checksum cache)
+.task/
+
+# Generated files
+*.generated.yml
+*.generated.yaml
+
+# Environment (user-specific secrets)
+.env
+.env.local
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+
+# Go
+vendor/

@@ -19,8 +19,8 @@
 # Brings the `ci`, `mise:*:bootstrap`, etc. tasks. Shape copied from .github-example.
 [task_config]
 includes = [
-  "git::https://github.com/joeblew999/.github.git//tasks/mise.toml?ref=v0.43.0",
-  "git::https://github.com/joeblew999/.github.git//tasks/ci.toml?ref=v0.43.0",
+  "git::https://github.com/joeblew999/.github.git//tasks/mise.toml?ref=v0.67.1",
+  "git::https://github.com/joeblew999/.github.git//tasks/ci.toml?ref=v0.67.1",
 ]
 
 [tools]
